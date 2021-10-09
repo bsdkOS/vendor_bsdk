@@ -200,4 +200,12 @@ $(call inherit-product, vendor/google/gms/config.mk)
 # RRO Overlays
 $(call inherit-product, vendor/bsdk/config/rro_overlays.mk)
 
+# Common Overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    vendor/bsdk/overlay-gapps/common
+
+# Exclude RRO Enforcement
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
+    vendor/bsdk/overlay-gapps
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
