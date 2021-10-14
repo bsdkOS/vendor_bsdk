@@ -29,16 +29,19 @@ CUSTOM_DATE_MINUTE := $(shell date -u +%M)
 CUSTOM_BUILD_DATE_UTC := $(shell date -d '$(CUSTOM_DATE_YEAR)-$(CUSTOM_DATE_MONTH)-$(CUSTOM_DATE_DAY) $(CUSTOM_DATE_HOUR):$(CUSTOM_DATE_MINUTE) UTC' +%s)
 CUSTOM_BUILD_DATE := $(CUSTOM_DATE_YEAR)$(CUSTOM_DATE_MONTH)$(CUSTOM_DATE_DAY)-$(CUSTOM_DATE_HOUR)$(CUSTOM_DATE_MINUTE)
 
-CUSTOM_PLATFORM_VERSION := 11.0
+CUSTOM_BSDK_VERSION := Sambhog-v1.0
+
+CUSTOM_PLATFORM_VERSION := twelve
 
 TARGET_PRODUCT_SHORT := $(subst aosp_,,$(CUSTOM_BUILD))
 
-CUSTOM_VERSION := PixelExperience_$(CUSTOM_BUILD)-$(CUSTOM_PLATFORM_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_BUILD_TYPE)
-CUSTOM_VERSION_PROP := eleven
+CUSTOM_VERSION := bsdkOS_$(CUSTOM_BUILD)-$(CUSTOM_PLATFORM_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_BUILD_TYPE)
+CUSTOM_VERSION_PROP := twelve
 
 ADDITIONAL_BUILD_PROPERTIES += \
-    org.pixelexperience.version=$(CUSTOM_VERSION_PROP) \
-    org.pixelexperience.version.display=$(CUSTOM_VERSION) \
-    org.pixelexperience.build_date=$(CUSTOM_BUILD_DATE) \
-    org.pixelexperience.build_date_utc=$(CUSTOM_BUILD_DATE_UTC) \
-    org.pixelexperience.build_type=$(CUSTOM_BUILD_TYPE)
+    ro.custom.version=$(CUSTOM_VERSION_PROP) \
+    ro.custom.bsdkos.version=$(CUSTOM_BSDK_VERSION) \
+    ro.custom.version.display=$(CUSTOM_VERSION) \
+    ro.custom.build_date=$(CUSTOM_BUILD_DATE) \
+    ro.custom.build_date_utc=$(CUSTOM_BUILD_DATE_UTC) \
+    ro.custom.build_type=$(CUSTOM_BUILD_TYPE)
