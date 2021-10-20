@@ -14,8 +14,3 @@ PRODUCT_PACKAGES += \
     PixelSetupWizardOverlayAosp \
     PixelTetheringOverlay \
     SettingsGoogleOverlayAosp
-
-ifeq ($(TARGET_INCLUDE_LIVE_WALLPAPERS),true)
-PRODUCT_PACKAGES += \
-    PixelLiveWallpapersOverlay
-endif
